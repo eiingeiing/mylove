@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ถึงอัยอ้วน 💗</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Prompt",sans-serif;
+    background: linear-gradient(135deg,#ffd6e7,#ffeaf4,#ffd6e7);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* หน้าทั้งหมด */
+.page{
+    position:absolute;
+}
+
+/* กล่อง */
+.box{
+    background: rgba(255,255,255,0.9);
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(255,105,180,0.4);
+}
+
+/* ปุ่ม */
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* ปุ่มเริ่ม */
+#startBtn{
+    background:#ff4d88;
+    color:white;
+}
+
+#startBtn:hover{
+    transform:scale(1.1);
+}
+
+/* รูป */
+img{
+    width:300px;
+    margin:15px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ปุ่มรัก */
+#yes{
+    background:#ff4d88;
+    color:white;
+}
+
+/* ปุ่มไม่ */
+#no{
+    background:#999;
+    color:white;
+    position:absolute;
+}
+
+/* หัวใจ */
+.heart{
+    position:absolute;
+    font-size:24px;
+    animation:float 4s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-500px);opacity:0;}
+}
+
+#message{
+    color:#ff1a66;
+    font-size:20px;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- หน้าแรก -->
+<div id="page1" class="page">
+    <div class="box">
+        <h1>อัยอ้วนเค้ามีไรจะให้</h1>
+        <h5>เสียงดังนิดนึงนะคะ</h5>
+        <button id="startBtn" onclick="start()">กดตรงนี้อ้วน</button>
+    </div>
+</div>
+
+<!-- หน้าเซอร์ไพรส์ -->
+<div id="page2" class="page" style="display:none;">
+    <div class="box">
+
+        <h1>I LOVE U NA I AUAN </h1>
+
+        <img src="photo/image2.0.png">
+
+        <p>
+        รักมากๆเลยยยยนะคะ<br>
+        อยากอยู่กับอ้วนไปตลอดเลยเค้าไม่เคยคิดที่จะเปลี่ยนใจเรื่องของเราเลยนะคะ<br><br>
+
+        อยากให้เรามีกันแบบนี้ตลอดไปจับมือพากันไปกินนู้นกินนี้แค่นี้ก็มีความสุขมากๆแน้วว<br>
+        เค้าอยากมีเธอไปทุกวันเลยนะ<br><br>
+
+        เธอน่ะ เป็น แฟน ที่ น่า รัก ของ เค้า นะคะ เค้าจะไม่ทำให้เธอเสียใจ!!! ละเค้าจะไม่ยอมยกเธอให้ใครหรอกนะ!!!<br>
+        <br>
+        เธอน่ะ เป็นทั้งชีวิตของเค้าเลยนะคะอ้วน💗
+        </p>
+
+        <h2>ละเค้าจะถามเธอคำนึงนะคะ เธอ รัก เค้า มั้ยคะ </h2>
+
+        <button id="yes" onclick="love()">💖 รัก</button>
+        <button id="no" onmouseover="run()">😝 ไม่</button>
+
+        <div id="message"></div>
+
+    </div>
+</div>
+
+<!-- เพลง -->
+<audio id="music" loop>
+    <source src="music/Hers -  little by little Official MV.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* กดเริ่ม */
+function start(){
+
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+
+    document.getElementById("music").play();
+}
+
+/* กดรัก */
+function love(){
+
+    document.getElementById("message").innerHTML=
+    "เค้ารู้ว่าเธอรักเค้า 💗<br>เค้าก็รักเธอที่สุดในโลกเลยนะ 🥺";
+
+    for(let i=0;i<30;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="💗";
+        heart.className="heart";
+
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top="80vh";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),4000);
+    }
+}
+
+/* ปุ่มไม่หนี */
+function run(){
+
+    let button=document.getElementById("no");
+
+    button.style.left=Math.random()*80+"vw";
+    button.style.top=Math.random()*80+"vh";
+}
+
+</script>
+
+</body>
+</html>
